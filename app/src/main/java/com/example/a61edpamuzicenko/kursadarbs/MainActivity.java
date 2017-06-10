@@ -13,18 +13,18 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-
     Button bt1,bt2,bt3;
     EditText et_Login, et_Password;
 
     DBHelper dbhelper;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        getSupportActionBar().setTitle("Login Page");
+        ActivityHelper.initialize(this);
+        final int ID = getSharedPreferences(MuzichenkoAppConstants.PREFS_NAME,MODE_PRIVATE).getInt(MuzichenkoAppConstants.MY_ID,MuzichenkoAppConstants.ID);
         //slezhenie za polami vvoda
         et_Login = (EditText) findViewById(R.id.et_Login);
         et_Password = (EditText) findViewById(R.id.et_Password);
@@ -48,9 +48,19 @@ public class MainActivity extends AppCompatActivity {
                     int count = mCount.getInt(0);
                     mCount.close();
                     if(count>0){
+                        String WhereClause = "Login= '" + Login + "'";
+                        Cursor c = database.query("Users", null, WhereClause, null, null, null, null);
+                        if(c!=null&&c.moveToFirst()){
+                            do{
+                                int ID = c.getInt(c.getColumnIndexOrThrow ("_ID"));
+                                getSharedPreferences(MuzichenkoAppConstants.PREFS_NAME,MODE_PRIVATE).edit().putInt(MuzichenkoAppConstants.MY_ID,ID).commit();
+
+                            }while(c.moveToNext());
+                        }
+                        c.close();
                         Toast.makeText(getApplicationContext(), "Welcome! "+ Login, Toast.LENGTH_LONG).show();
-                        Intent myIntent = new Intent(MainActivity.this,work_activity.class);
-                        // myIntent.putExtra("mykey","test");
+                        Intent myIntent = new Intent(MainActivity.this,WorkActivity.class);
+                        // myIntent.putExtra(ID,"test");
                         startActivity(myIntent);
                     }
                     else{
@@ -66,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         bt2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(MainActivity.this,Reg_activity.class);
+                Intent myIntent = new Intent(MainActivity.this,RegActivity.class);
                 startActivity(myIntent);
             }
         });
@@ -85,20 +95,29 @@ public class MainActivity extends AppCompatActivity {
                         Log.d("mLog", "ID = " + cursor.getInt(idUser) +
                                 ", UserName = " + cursor.getString(LoginUser) +
                                 ", Email = " + cursor.getString(EmailUser));
+                                Log.d("mLog", String.valueOf(ID));
                     } while (cursor.moveToNext());
                 }
                 else{
                         Log.d("mLog","0 rows");
+                        Log.d("mLog", String.valueOf(ID));
                     }
                 cursor.close();
-
-
-
 
             }
         });
 
 
+    }
+    protected void onDestroy(){
+        super.onDestroy();
+        getSharedPreferences(MuzichenkoAppConstants.PREFS_NAME,MODE_PRIVATE).edit().putInt(MuzichenkoAppConstants.MY_ID,0).commit();
+
+    }
+    @Override
+    public void onStop() {
+        super.onStop();
+        getSharedPreferences(MuzichenkoAppConstants.PREFS_NAME,MODE_PRIVATE).edit().putInt(MuzichenkoAppConstants.MY_ID,0).commit();
     }
 }
 

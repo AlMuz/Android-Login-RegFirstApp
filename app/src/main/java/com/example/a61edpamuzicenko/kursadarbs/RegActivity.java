@@ -11,7 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class Reg_activity extends AppCompatActivity implements View.OnClickListener {
+public class RegActivity extends AppCompatActivity implements View.OnClickListener {
+
     Button btn_reg;
     EditText et_Login, et_Password, et_Email;
 
@@ -21,7 +22,8 @@ public class Reg_activity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reg);
-
+        getSupportActionBar().setTitle("Registration page");
+        ActivityHelper.initialize(this);
         //slezhenie za knopkoj registracii
         btn_reg =(Button) findViewById(R.id.btn_reg);
         btn_reg.setOnClickListener(this);
@@ -75,7 +77,7 @@ public class Reg_activity extends AppCompatActivity implements View.OnClickListe
                         contentValues.put(DBHelper.USER_EMAIL, Email);
                         database.insert(DBHelper.TABLE_USERS, null, contentValues);
                         Toast.makeText(getApplicationContext(), "Account created! UserName " + Login + " and email " + Email, Toast.LENGTH_LONG).show();
-                        Intent myIntent = new Intent(Reg_activity.this,MainActivity.class);
+                        Intent myIntent = new Intent(RegActivity.this,MainActivity.class);
                         startActivity(myIntent);
                         break;
                     }

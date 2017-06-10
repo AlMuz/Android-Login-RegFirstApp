@@ -25,7 +25,8 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:digits="0123456789AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz.-_"/>
 
     <TextView
         android:id="@+id/textView"
@@ -46,7 +47,8 @@
         android:inputType="textPassword"
         android:layout_below="@+id/textView2"
         android:layout_alignStart="@+id/et_Login"
-        android:layout_marginTop="11dp" />
+        android:layout_marginTop="11dp"
+        android:digits="0123456789AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz"/>
 
     <TextView
         android:id="@+id/textView2"
@@ -72,7 +74,7 @@
         android:id="@+id/btn_test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Test_check"
+        android:text="@string/test_check"
         android:layout_marginTop="22dp"
         android:layout_below="@+id/btn_reg"
         android:layout_centerHorizontal="true" />

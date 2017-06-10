@@ -1,9 +1,15 @@
 <resources>
-    <string name="app_name">Muzichenko App</string>
+    <string name="app_name">MuzichenkoApp</string>
     <string name="username">UserName</string>
     <string name="password">Password</string>
     <string name="email">Email</string>
     <string name="register_now">Register now!</string>
     <string name="login">Login</string>
     <string name="registration">Registration</string>
+    <string name="read">Read</string>
+    <string name="delete">Delete</string>
+    <string name="your_note">Your Note</string>
+    <string name="add">ADD</string>
+    <string name="text">text</string>
+    <string name="test_check">Test_check</string>
 </resources>

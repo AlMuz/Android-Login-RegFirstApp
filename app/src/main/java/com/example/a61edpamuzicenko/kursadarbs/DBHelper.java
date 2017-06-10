@@ -19,6 +19,11 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String USER_EMAIL = "Email";
 
 
+    public static final String TABLE_NOTES="NOTES";
+    public static final String NOTE_ID ="_ID";
+    public static final String NOTE_TEXT ="Text";
+
+
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -29,11 +34,14 @@ public class DBHelper extends SQLiteOpenHelper {
         //Sozdanie tablici User
         db.execSQL("Create table " + TABLE_USERS +
                 "(" + USER_ID + " integer primary key," +USER_LOGIN + " text," + USER_EMAIL + " text," + USER_PASSWORD + " text)");
+        db.execSQL("Create table " + TABLE_NOTES +
+                "(" + NOTE_ID + " integer primary key," +NOTE_TEXT + " text)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("Drop table if exists " + TABLE_USERS);
+        db.execSQL("Drop table if exists " + TABLE_NOTES);
 
         onCreate(db);
 
@@ -41,6 +49,7 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("Drop table if exists " + TABLE_USERS);
+        db.execSQL("Drop table if exists " + TABLE_NOTES);
 
         onCreate(db);
 

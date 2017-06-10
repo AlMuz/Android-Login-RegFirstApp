@@ -21,9 +21,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Reg_activity" />
-        <activity android:name=".work_activity" />
-        <activity android:name=".Update_activity"></activity>
+        <activity android:name=".RegActivity" />
+        <activity android:name=".WorkActivity" />
     </application>
 
 </manifest>

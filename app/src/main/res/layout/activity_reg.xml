@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.a61edpamuzicenko.kursadarbs.Reg_activity">
+    tools:context="com.example.a61edpamuzicenko.kursadarbs.RegActivity">
 
     <TextView
         android:id="@+id/textView6"
@@ -23,10 +23,10 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="70dp"
         android:ems="10"
-        android:inputType="text"
+        android:inputType="textPersonName"
         tools:layout_editor_absoluteX="87dp"
         tools:layout_editor_absoluteY="221dp"
-        android:digits="0123456789AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz"
+        android:digits="0123456789AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz.-_"
         />
 
     <EditText
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         android:ems="10"
-        android:inputType="text"
+        android:inputType="textPassword"
         android:layout_below="@+id/textView3"
         android:layout_alignStart="@+id/et_Login"
         android:digits="0123456789AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz"
@@ -47,10 +47,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="27dp"
         android:ems="10"
-        android:inputType="text"
+        android:inputType="textEmailAddress"
         android:layout_below="@+id/textView5"
         android:layout_alignStart="@+id/et_Password"
-        android:digits="0123456789AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz"/>
+        android:digits="0123456789AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz.-_@"/>
 
     <TextView
         android:id="@+id/textView3"

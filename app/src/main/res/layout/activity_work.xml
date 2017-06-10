@@ -4,14 +4,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.a61edpamuzicenko.kursadarbs.work_activity">
+    tools:context="com.example.a61edpamuzicenko.kursadarbs.WorkActivity">
+
+    <EditText
+        android:id="@+id/et_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="41dp"
+        android:ems="10"
+        android:hint="@string/text"
+        android:inputType="textPersonName"
+        android:selectAllOnFocus="true"
+        android:singleLine="false"
+        android:layout_below="@+id/textView12"
+        android:layout_alignParentStart="true"/>
 
     <Button
-        android:id="@+id/btn_upd"
+        android:id="@+id/btn_read"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="36dp"
-        android:text="Update Acc" />
+        android:text="@string/read"
+        android:layout_alignBaseline="@+id/btn_add"
+        android:layout_alignBottom="@+id/btn_add"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/btn_del"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/delete"
+        android:layout_alignBaseline="@+id/btn_read"
+        android:layout_alignBottom="@+id/btn_read"
+        android:layout_alignParentEnd="true"/>
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:text="@string/your_note"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="89dp"
+        android:text="@string/add"
+        android:layout_below="@+id/et_text"
+        android:layout_alignParentStart="true"/>
+
 </RelativeLayout>
